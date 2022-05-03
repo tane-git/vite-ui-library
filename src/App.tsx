@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import logo from './logo.svg'
-import './App.css'
+// import './App.css'
+import './App.less'
+import { Button } from 'antd'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,9 +14,17 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
         <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
+          {/* <button type="button" onClick={() => setCount((count) => count + 1)}>
             count is: {count}
-          </button>
+          </button> */}
+          <Button
+            type='primary'
+            shape='round'
+            size='large'
+            onClick={() => setCount((count) => count + 1)}
+          >
+            count is: {count}
+          </Button>
         </p>
         <p>
           Edit <code>App.tsx</code> and save to test HMR updates.
