@@ -17,7 +17,7 @@ export default defineConfig({
       input: 'src/components/index.ts',
       output: [
         {
-          file: packageJson.module,
+          dir: packageJson.module,
           format: 'esm',
           sourcemap: true,
         }
