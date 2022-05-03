@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+const packageJson = require('./package.json')
+
 export default defineConfig({
   plugins: [react()],
   css: {
@@ -10,4 +12,23 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    rollupOptions: {
+      input: 'src/components/index.ts',
+      output: [
+        {
+          file: packageJson.module,
+          format: 'esm',
+          sourcemap: true,
+        }
+      ],
+      // plugins: [
+      //   peerDepsExternal(),
+      //   resolve(),
+      //   commonjs(),
+      //   typescript({ useTsconfigDeclarationDir: true }),
+      //   postcss()
+      // ]
+    }
+  }
 })
